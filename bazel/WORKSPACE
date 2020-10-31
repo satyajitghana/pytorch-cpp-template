@@ -1,0 +1,44 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+
+http_archive(
+    name = "libtorch_cpu",
+    build_file = "@//:libtorch_cpu.BUILD",
+    urls = ["https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.7.0%2Bcpu.zip"],
+    sha256 = "4710f1a1ca8ceb1a75d44ba9f1913c1f64203e8a58c707763f5afffbbbfdb390",
+    strip_prefix = "libtorch",
+)
+
+http_archive(
+    name = "libtorch_cpu_pre_cxx11_abi",
+    build_file = "@//:libtorch_cpu.BUILD",
+    urls = ["https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-1.7.0%2Bcpu.zip"],
+    sha256 = "4cf8635fb41774c3b38fcb9955ff86b4ed7eb8e73d1595a09297196b7c28db28",
+    strip_prefix = "libtorch",
+)
+
+http_archive(
+    name = "libtorch",
+    build_file = "@//:libtorch.BUILD",
+    urls = ["https://download.pytorch.org/libtorch/cu102/libtorch-cxx11-abi-shared-with-deps-1.6.0.zip"],
+    sha256 = "fded948bd2dbee625cee33ebbd4843a69496729389e0200a90fbb667cdaeeb69",
+    strip_prefix = "libtorch",
+)
+
+http_archive(
+    name = "libtorch_pre_cxx11_abi",
+    build_file = "@//:libtorch.BUILD",
+    urls = ["https://download.pytorch.org/libtorch/cu102/libtorch-shared-with-deps-1.6.0.zip"],
+    sha256 = "141bb229f4bbf905541096cf8705785e7b0c79e37ca1e5db9d372730b1b9abd7",
+    strip_prefix = "libtorch",
+)
+
+# Use local repository if you plan to link your application with a custom build of pytorch
+# new_local_repository is used to create a local non bazel repository, so you can use the .so
+# files generated in that folder and add it as a dependency to your build
+
+# new_local_repository(
+#     name = "libtorch",
+#     build_file = "libtorch.BUILD",
+#     path = "/home/shadowleaf/libtorch",
+# )

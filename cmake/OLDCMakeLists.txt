@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(torch_test VERSION 0.1.0)
+
+include(CTest)
+enable_testing()
+
+# add libtorch to path
+list(APPEND CMAKE_PREFIX_PATH "/home/shadowleaf/libtorch")
+
+find_package(Torch REQUIRED)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+
+add_executable(torch_test main.cpp)
+target_link_libraries(torch_test "${TORCH_LIBRARIES}")
+set_property(TARGET torch_test PROPERTY CXX_STANDARD 14)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
