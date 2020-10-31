@@ -8,8 +8,8 @@ End-To-End Example: [https://pytorch.org/cppdocs/frontend.html#end-to-end-exampl
 
 ## Build Status
 
--   [x] [bazel](bazel) ![Bazel Build](https://github.com/satyajitghana/pytorch-cpp-template/workflows/Bazel%20Build/badge.svg)
--   [x] [cmake](cmake) ![CMake Build](https://github.com/satyajitghana/pytorch-cpp-template/workflows/CMake%20Build/badge.svg?branch=master)
+-   [x] [Bazel](bazel) ![Bazel Build](https://github.com/satyajitghana/pytorch-cpp-template/workflows/Bazel%20Build/badge.svg)
+-   [x] [CMake](cmake) ![CMake Build](https://github.com/satyajitghana/pytorch-cpp-template/workflows/CMake%20Build/badge.svg?branch=master)
 
 ## To Add
 
